@@ -1,2 +1,2 @@
-# flaks-hello
+# flask-hello
 learnging flask
