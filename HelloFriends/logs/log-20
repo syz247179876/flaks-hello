@@ -1,0 +1,21 @@
+INFO _internal.py:113  * Detected change in '/home/syz/FlaskLearning/HelloFriends/user/__init__.py', reloading
+INFO _internal.py:113  * Restarting with stat
+INFO _internal.py:113 127.0.0.1 - - [23/Oct/2020 20:55:25] "[33mGET / HTTP/1.1[0m" 404 -
+INFO _internal.py:113  * Detected change in '/home/syz/FlaskLearning/HelloFriends/user/__init__.py', reloading
+INFO _internal.py:113  * Restarting with stat
+INFO _internal.py:113  * Detected change in '/home/syz/FlaskLearning/HelloFriends/user/__init__.py', reloading
+INFO _internal.py:113  * Restarting with stat
+INFO _internal.py:113  * Detected change in '/home/syz/FlaskLearning/HelloFriends/user/__init__.py', reloading
+INFO _internal.py:113  * Restarting with stat
+INFO _internal.py:113  * Detected change in '/home/syz/FlaskLearning/HelloFriends/user/__init__.py', reloading
+INFO _internal.py:113  * Restarting with stat
+INFO _internal.py:113  * Detected change in '/home/syz/FlaskLearning/HelloFriends/user/__init__.py', reloading
+INFO _internal.py:113  * Restarting with stat
+INFO _internal.py:113  * Detected change in '/home/syz/FlaskLearning/HelloFriends/user/__init__.py', reloading
+INFO _internal.py:113  * Restarting with stat
+INFO _internal.py:113  * Detected change in '/home/syz/FlaskLearning/HelloFriends/user/__init__.py', reloading
+INFO _internal.py:113  * Restarting with stat
+INFO _internal.py:113  * Detected change in '/home/syz/FlaskLearning/HelloFriends/config.py', reloading
+INFO _internal.py:113  * Restarting with stat
+INFO _internal.py:113  * Restarting with stat
+INFO _internal.py:113  * Restarting with stat
