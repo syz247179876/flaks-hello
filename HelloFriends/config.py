@@ -7,8 +7,6 @@ import logging
 
 from flask_pymongo import PyMongo
 
-
-
 class Config(object):
     """基础配置类"""
 
@@ -40,14 +38,14 @@ class MongodbConfig(Config):
 class SqlAlchemyConfig(Config):
     """配置SqlAlchemy  ORM"""
 
-
+    _DRIVER = None
+    _ROOT = None
+    _PASSWORD = None
 
     @property
     def SQLALCHEMY_DATABASE_URI(self):
-        return "{db}+{driver}://{root}:{password}@{host}:{port}/{db_name}".format(
-            db=self._DB, driver=self._DRIVER, root=self._ROOT, password=self._PASSWORD,
-            host=self._DB_SERVER, port=self._PORT, db_name=self._DB_NAME
-        )
+        # 加f表示可以在字符串内的大括号内实现python的表达式
+        return f"{self._DB}+{self._DRIVER}://{self._ROOT}:{self._PASSWORD}@{self._DB_SERVER}:{self._DB_PORT}/{self._DB_NAME}"
 
     SQLALCHEMY_TRACK_MODIFICATIONS = False # 动态追踪数据库的修改.
 
@@ -63,7 +61,7 @@ class MysqlConfig(SqlAlchemyConfig):
     _PASSWORD = '123456'
     _DB_SERVER = '127.0.0.1'
     _DB_PORT = '27017'
-    _DB_NAME = 'HelloFriends'
+    _DB_NAME = 'hellofriends'
 
 
 class DevelopConfigMysql(MysqlConfig):
@@ -100,3 +98,4 @@ config_test = TestConfig()                  # 测试环境使用
 # 开发环境的mysql数据库
 config_develop_mysql = DevelopConfigMysql()
 
+print(config_develop_mysql.SQLALCHEMY_DATABASE_URI)

@@ -4,24 +4,39 @@
 # @File : auth.py
 # @Software: Pycharm
 
-import functools
-
 
 from flask import (
-    Blueprint, flash, g, redirect, render_template, request, session, url_for
+    Blueprint
 )
-from werkzeug.security import check_password_hash, generate_password_hash
-
+from flask_restful import Resource
 
 # 创建一个蓝图
+
 bp = Blueprint('auth', __name__, url_prefix='/auth')
 
 
-@bp.route('/register',methods=('GET','POST'))
-def register():
-    if request.method == 'POST':
-        username = request.form['username']
-        password = request.form['password']
+# @bp.route('/login', methods=['POST', 'GET'])
+# def login():
+#     if request.method == 'POST':
+#         print(request)
+#     return Response()
+
+class Register(Resource):
+    """资源路由"""
+    def get(self, ):
+        pass
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

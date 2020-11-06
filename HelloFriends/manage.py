@@ -4,4 +4,10 @@
 # @File : manage.py.py
 # @Software: Pycharm
 
-from flask import ctx
+from user import create_app
+
+app = create_app()
+
+if __name__ == '__main__':
+    # 启动flask服务
+    app.run(host='127.0.0.1', port=5000)
