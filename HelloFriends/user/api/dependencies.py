@@ -8,7 +8,7 @@
 依赖注入
 '''
 from flask import Blueprint
-from flask_restful import Resource
+from flask_restful import Resource, abort
 
 bp_dependencies = Blueprint('dependencies', __name__, url_prefix='/dependencies')
 
@@ -18,3 +18,6 @@ class TodoNext(Resource):
 
     def get(self):
         return self.my_dependencies()  # 调用依赖操作
+
+
+

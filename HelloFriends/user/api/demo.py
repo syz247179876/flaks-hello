@@ -6,6 +6,7 @@
 from flask_restful import Resource
 
 
+
 class Todo1(Resource):
     def get(self):
         # Default to 200 OK

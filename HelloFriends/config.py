@@ -23,6 +23,7 @@ class Config(object):
 class MongodbConfig(Config):
     """Mongodb相关的参数配置"""
 
+
     _DB = 'mongodb'
     _DB_SERVER = '127.0.0.1'
     _DB_PORT = '27017'
@@ -58,9 +59,9 @@ class MysqlConfig(SqlAlchemyConfig):
     _DB = 'mysql'
     _DRIVER = 'pymysql'
     _ROOT = 'root'
-    _PASSWORD = '123456'
+    _PASSWORD = 'syzxss247179876'
     _DB_SERVER = '127.0.0.1'
-    _DB_PORT = '27017'
+    _DB_PORT = '3306'
     _DB_NAME = 'hellofriends'
 
 

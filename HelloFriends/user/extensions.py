@@ -8,8 +8,7 @@ from flask_login import LoginManager
 from flask_pymongo import PyMongo
 from flask_sqlalchemy import SQLAlchemy
 
-
 login_manager = LoginManager()
-db = SQLAlchemy()
-mongo = PyMongo()
+db = SQLAlchemy()  # orm
+mongo = PyMongo()  # mongodb
 

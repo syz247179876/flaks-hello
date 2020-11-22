@@ -4,9 +4,8 @@
 # @File : auth.py
 # @Software: Pycharm
 
-
 from flask import (
-    Blueprint
+    Blueprint, request
 )
 from flask_restful import Resource
 
@@ -14,17 +13,12 @@ from flask_restful import Resource
 
 bp = Blueprint('auth', __name__, url_prefix='/auth')
 
-
-# @bp.route('/login', methods=['POST', 'GET'])
-# def login():
-#     if request.method == 'POST':
-#         print(request)
-#     return Response()
-
 class Register(Resource):
     """资源路由"""
-    def get(self, ):
+    def get(self, request):
         pass
+
+
 
 
 

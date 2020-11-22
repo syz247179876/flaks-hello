@@ -4,10 +4,23 @@
 # @File : manage.py.py
 # @Software: Pycharm
 
-from user import create_app
+from user import create_app, db
+from flask_script import Manager, Server
+
+from user.models import User
 
 app = create_app()
+manager = Manager(app)
+
+manager.add_command('runserver', Server)  # 使用python manage.py runserver就可以启动服务器了
+
+# 创建在命令行里面的上下文环境,想到与在命令行中直接导入
+@manager.shell
+def make_shell_context():
+    return dict(app=app, db=db, User=User)
+# 命令行中可以使用db.create_all()来创建数据表
 
 if __name__ == '__main__':
     # 启动flask服务
-    app.run(host='127.0.0.1', port=5000)
+    manager.run()
+    # app.run(host='127.0.0.1', port=5000)
