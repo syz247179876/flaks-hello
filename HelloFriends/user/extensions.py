@@ -7,6 +7,7 @@
 from flask_login import LoginManager
 from flask_pymongo import PyMongo
 from flask_sqlalchemy import SQLAlchemy
+from flask_cache import Cache
 
 login_manager = LoginManager()
 db = SQLAlchemy()  # orm

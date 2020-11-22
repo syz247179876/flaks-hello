@@ -27,7 +27,7 @@ def create_app(test_config=None):
     # 导入类对象作为默认配置,如果包含property，则必须以实例的方式传入
     app.config.from_object(config_develop_mysql)   # 注册mysql
     app.config.from_object(config_develop)         # 注册mongodb
-    print(app.config)
+    app.config.from_object(co)
 
     # api.init_app(app)                # 将flask_restful注册到app中, # 将api与blueprint结合,可以不需要了
 

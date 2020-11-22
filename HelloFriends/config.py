@@ -59,7 +59,7 @@ class MysqlConfig(SqlAlchemyConfig):
     _DB = 'mysql'
     _DRIVER = 'pymysql'
     _ROOT = 'root'
-    _PASSWORD = 'syzxss247179876'
+    _PASSWORD = ''
     _DB_SERVER = '127.0.0.1'
     _DB_PORT = '3306'
     _DB_NAME = 'hellofriends'
@@ -96,7 +96,25 @@ config_develop = DevelopConfig()            # 开发环境使用
 config_product = ProductConfig()            # 生产环境使用
 config_test = TestConfig()                  # 测试环境使用
 
+class CacheConfig(object):
+    CACHE_DEFAULT_TIMEOUT = 300
+    CACHE_THRESHOLD = 500
+    CACHE_KEY_PREFIX = 'flask_cache_'
+    CACHE_NO_NULL_WARNING = False
+
+class RedisConfig(CacheConfig):
+    CACHE_TYPE = 'redis'
+    CACHE_REDIS_HOST = '127.0.0.1'
+    CACHE_REDIS_PORT = 6379
+    CACHE_REDIS_DB = ''
+    CACHE_REDIS_PASSWORD = ''
+
+class MemcachedConfig(CacheConfig):
+    CACHE_TYPE = 'memcached'
+    CACHE_MEMCACHED_SERVERS = None
+
+config_redis = RedisConfig()
+
 # 开发环境的mysql数据库
 config_develop_mysql = DevelopConfigMysql()
 
-print(config_develop_mysql.SQLALCHEMY_DATABASE_URI)
