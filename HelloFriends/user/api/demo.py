@@ -5,12 +5,14 @@
 # @Software: Pycharm
 from flask_restful import Resource
 
+from user.utils.api_exceptions import ApiException, QQServiceUnavailable
 
 
 class Todo1(Resource):
+
     def get(self):
         # Default to 200 OK
-        return {'task': 'Hello world'}
+        raise QQServiceUnavailable()
 
 
 class Todo2(Resource):

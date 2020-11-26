@@ -35,3 +35,13 @@ class QQOauth(db.Model):
     # 创建外键,参照主表的id
     qq_user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     openid = db.Column(db.String(128), nullable=False)
+
+
+class WeiBoOauth(db.Model):
+    """创建微博第三方登录"""
+
+    # 添加外键约束
+    id = db.Column(db.Integer, primary_key=True)
+
+    wb_user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    openid = db.Column(db.String(128), nullable=False)
