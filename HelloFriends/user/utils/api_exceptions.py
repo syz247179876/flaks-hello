@@ -67,15 +67,18 @@ HTTP_508_LOOP_DETECTED = 508
 HTTP_509_BANDWIDTH_LIMIT_EXCEEDED = 509
 HTTP_510_NOT_EXTENDED = 510
 HTTP_511_NETWORK_AUTHENTICATION_REQUIRED = 511
-
 # 通用自定义异常码
 UNIVERSAL_ERROR = 9999
-
 # QQ认证异常码
 QQ_AUTHENTICATION_ERROR = 1001
-
 # 微博认证异常码
 WeiBo_AUTHENTICATION_ERROR = 1002
+# 手机注册异常
+PHONE_REGISTER_ERROR = 1003
+# 手机号不存在
+PHONE_NOT_EXIST = 1004
+# 手机号存在
+PHONE_HAS_EXISTED = 1005
 
 
 class ApiException(werkzeug.exceptions.HTTPException):
@@ -113,8 +116,8 @@ class ApiException(werkzeug.exceptions.HTTPException):
 
 class ServerError(ApiException):
     """通用服务错误"""
-    code = 500
-    error_code = 9999
+    code = HTTP_500_INTERNAL_SERVER_ERROR
+    error_code = UNIVERSAL_ERROR
     description = 'Server Error'
     def __init__(self):
         super().__init__(self.code,self.error_code,self.description)
@@ -122,7 +125,7 @@ class ServerError(ApiException):
 
 class QQServiceUnavailable(ApiException):
     """QQ认证异常"""
-    code = 400
+    code = HTTP_400_BAD_REQUEST
     error_code = QQ_AUTHENTICATION_ERROR
     description = 'QQ Authentication error'
 
@@ -131,10 +134,27 @@ class QQServiceUnavailable(ApiException):
 
 class WbServiceUnavailable(ApiException):
     """微博认证异常"""
-    code = 400
+    code = HTTP_400_BAD_REQUEST
     error_code = WeiBo_AUTHENTICATION_ERROR
     description = 'WeiBo Authentication error'
 
     def __init__(self):
         super().__init__(self.code, self.error_code, self.description)
 
+class RegisterExistedException(ApiException):
+    """手机注册已存在"""
+    code = HTTP_400_BAD_REQUEST
+    error_code = PHONE_HAS_EXISTED
+    description = 'Mobile phone number exist'
+
+    def __init__(self):
+        super().__init__(self.code, self.error_code, self.description)
+
+class LoginNotExistException(ApiException):
+    """手机号登录不存在"""
+    code = HTTP_400_BAD_REQUEST
+    error_code = PHONE_NOT_EXIST
+    description = 'Mobile phone number does not exist'
+
+    def __init__(self):
+        super().__init__(self.code, self.error_code, self.description)

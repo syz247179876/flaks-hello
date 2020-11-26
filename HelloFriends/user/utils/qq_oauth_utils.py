@@ -8,6 +8,7 @@ from urllib.parse import urlencode, parse_qs
 from urllib.request import urlopen
 import json
 from manage import app
+from user.utils.api_exceptions import QQServiceUnavailable
 
 
 class OAuthQQ(object):
@@ -76,6 +77,6 @@ class OAuthQQ(object):
             data = json.loads(response_data[10:-4])
         except Exception:
             data = parse_qs(response_data)
-            raise QQServiceUnavailable(data)
+            raise QQServiceUnavailable()
         openid = data.get('openid', None)
         return openid

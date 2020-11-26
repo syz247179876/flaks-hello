@@ -3,7 +3,9 @@
 # @Author : 司云中
 # @File : demo.py
 # @Software: Pycharm
-from flask_restful import Resource
+from werkzeug.exceptions import HTTPException
+
+from flask_restful import Resource, abort
 
 from user.utils.api_exceptions import ApiException, QQServiceUnavailable
 
@@ -12,7 +14,9 @@ class Todo1(Resource):
 
     def get(self):
         # Default to 200 OK
+
         raise QQServiceUnavailable()
+
 
 
 class Todo2(Resource):
